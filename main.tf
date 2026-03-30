@@ -40,7 +40,7 @@ locals {
     }
   ]
 
-  public_policy_statements_effective = length(var.public_policy_statements) > 0 ? var.public_policy_statements : local.public_policy_default_statements
+  public_policy_statements_effective = length(var.public_policy_statements) > 0 ? var.public_policy_statements : tolist(local.public_policy_default_statements)
 }
 
 resource "aws_s3_bucket" "this" {
